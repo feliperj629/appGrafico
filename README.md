@@ -1,94 +1,50 @@
-# 📱 appGrafico
+# 📱 App Gráfico - React Native com Expo
 
-> **Projeto educativo desenvolvido em sala de aula para aprender React Native com Expo**
+> **Aplicativo educativo desenvolvido para aprender React Native com Expo através de exemplos práticos**
 
 ## 🎯 Sobre o Projeto
 
-Este projeto foi criado durante as aulas práticas de desenvolvimento mobile para demonstrar os conceitos fundamentais do **React Native** com **Expo**. O objetivo é fornecer uma base sólida para estudantes que estão iniciando no desenvolvimento mobile, através de exemplos práticos e um tutorial sequencial.
+Este projeto demonstra os conceitos fundamentais do **React Native** com **Expo**, incluindo:
+- Gerenciamento de estado com `useState`
+- Componentes básicos (Text, View, Button, TextInput, ScrollView, Image)
+- Interatividade com botões e inputs
+- Layout responsivo com StyleSheet
+- Operações matemáticas simples
 
-### 🚀 O que você vai aprender:
+### 🚀 Funcionalidades Implementadas
 
-- ✅ Controle de versão com Git e GitHub
-- ✅ Configuração inicial do ambiente React Native + Expo
-- ✅ Componentes básicos do React Native (Text, View, Button)
-- ✅ Componentes de lista (ScrollView, FlatList)
-- ✅ Componentes de mídia (Image)
-- ✅ Criação de formas geométricas
-- ✅ Gerenciamento de estado com hooks
-- ✅ Boas práticas de desenvolvimento
-
----
-
-## 📚 Controle de Versão com Git
-
-### Configuração Inicial
-
-#### 1. Criar Repositório no GitHub
-- Nome: `appGrafico`
-- Não adicionar README, .gitignore ou License
-
-#### 2. Verificar Credenciais Git
-```bash
-git config --global user.name
-git config --global user.email
-# se necessário:
-git config --global user.name "Seu Nome"
-git config --global user.email "seuemail@exemplo.com"
-```
-
-#### 3. Inicializar e Vincular
-```bash
-git init
-git remote add origin https://github.com/seu-usuario/appGrafico.git
-git branch -M main
-```
-
-#### 4. Primeiro Commit
-```bash
-git add .
-git commit -m "Primeira versão do app (Expo blank)"
-git push -u origin main
-```
-
-### 🔄 Ciclo de Trabalho Diário
-
-#### Atualizar antes de trabalhar:
-```bash
-git pull --rebase origin main
-```
-
-#### Rotina de desenvolvimento:
-```bash
-git add .
-git commit -m "Descreva sua mudança"
-git pull --rebase origin main
-git push
-```
+- ✅ **Contador Interativo** - Botão para incrementar valores
+- ✅ **Input de Nome** - Campo de texto com feedback em tempo real
+- ✅ **Calculadora Simples** - Soma de dois valores
+- ✅ **Conteúdo Educativo** - Texto sobre React Native com imagem
+- ✅ **Layout Responsivo** - ScrollView para conteúdo extenso
+- ✅ **Estilização Avançada** - Múltiplos containers com cores diferentes
 
 ---
 
 ## 🛠️ Configuração Inicial do Projeto
 
-### Passo 1: Criar o Projeto
+### Pré-requisitos
 
-Primeiro, vamos criar um novo projeto Expo com template blank:
+Antes de começar, certifique-se de ter instalado:
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- [Expo Go](https://expo.dev/client) (app para testar no celular)
+
+### Passo 1: Criar o Projeto
 
 ```bash
 npx create-expo-app appGrafico --template blank
 cd appGrafico
 ```
 
-### Passo 2: Instalar Dependências para Web
-
-Para poder testar no navegador, instale as dependências web:
+### Passo 2: Instalar Dependências
 
 ```bash
-npx expo install react-dom react-native-web @expo/metro-runtime
+npm install
 ```
 
 ### Passo 3: Executar o Projeto
-
-Inicie o servidor de desenvolvimento:
 
 ```bash
 npx expo start
@@ -102,23 +58,24 @@ npx expo start
 
 ---
 
-## 📚 Exemplos Sequenciais: Construindo uma Página Incremental
+## 📚 Tutorial Passo a Passo: Construindo o App Gráfico
 
-Vamos construir uma página completa passo a passo, adicionando funcionalidades gradualmente. **Cada etapa constrói sobre a anterior**, então você não perderá nenhum trabalho!
+Vamos construir o aplicativo completo seguindo estas etapas sequenciais. **Cada etapa constrói sobre a anterior**, então você não perderá nenhum trabalho!
 
 ### 🎯 Objetivo Final
-Criar uma página com:
-- Textos organizados
-- Lista rolável de itens
-- Imagens
-- Formas geométricas
-- Interatividade simples
+
+Criar um aplicativo com:
+- Contador interativo
+- Campo de entrada de nome
+- Calculadora simples
+- Conteúdo educativo sobre React Native
+- Layout com cores e organização visual
 
 ---
 
-### 📋 Etapa 1: Estrutura Básica
+### 📋 Etapa 1: Estrutura Básica e Imports
 
-**🎯 O que vamos fazer:** Criar a base do nosso app com estrutura básica.
+**🎯 O que vamos fazer:** Configurar a estrutura básica do aplicativo com todos os imports necessários.
 
 **📝 Passo a Passo:**
 1. Abra o arquivo `App.js`
@@ -126,14 +83,17 @@ Criar uma página com:
 3. Salve e veja o resultado
 
 ```javascript
-import { View, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, Text, Button, TextInput, ScrollView, StyleSheet, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        {/* Conteúdo será adicionado nas próximas etapas */}
-      </View>
+      <ScrollView>
+        <View style={styles.container1}>
+          {/* Conteúdo será adicionado nas próximas etapas */}
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -141,664 +101,321 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  content: {
-    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
+  },
+  container1: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    backgroundColor: "cyan",
   },
 });
 ```
 
 **✅ O que aprendemos:**
-- Estrutura básica do React Native
-- Uso do StyleSheet para organização
+- Importação de hooks (`useState`)
+- Importação de componentes React Native
+- Estrutura básica com View e ScrollView
+- StyleSheet para organização de estilos
 - Container principal com flex: 1
-- Área de conteúdo com padding
 
 ---
 
-### 📋 Etapa 2: Adicionando Textos Simples
+### 📋 Etapa 2: Adicionando Estados e Contador
 
-**🎯 O que vamos fazer:** Adicionar textos básicos com diferentes estilos.
+**🎯 O que vamos fazer:** Implementar o sistema de estados e criar o contador interativo.
 
 **📝 Passo a Passo:**
-1. **Mantenha o código anterior** (não apague nada!)
-2. Adicione os imports necessários
-3. Adicione os componentes de texto
+1. **Adicione apenas estas linhas** após `export default function App() {`
+2. **Adicione apenas este conteúdo** dentro do `<View style={styles.container1}>`
 
 ```javascript
-import { View, Text, StyleSheet } from 'react-native';
+// ➕ ADICIONAR: Estados do aplicativo
+const [contar, setContar] = useState(1);
+const [nome, setNome] = useState("");
+const [valor1, setValor1] = useState(0);
+const [valor2, setValor2] = useState(0);
+const [resultadoSoma, setResultadoSoma] = useState(0);
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.titulo}>Meu App Gráfico</Text>
-        <Text style={styles.subtitulo}>Aprendendo React Native</Text>
-        <Text style={styles.descricao}>
-          Este é um projeto educativo para aprender os fundamentos do React Native com Expo.
-        </Text>
-        <Text style={styles.autor}>Desenvolvido por: Estudante</Text>
-      </View>
-    </View>
-  );
-}
+// ➕ ADICIONAR: Conteúdo do contador
+<Text style={styles.text}>Brincando com o useState</Text>
+<Text style={styles.text}>Contador: {contar}</Text>
+<Button title="Adicionar" onPress={() => setContar(contar + 1)} />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  content: {
-    flex: 1,
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitulo: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  descricao: {
-    fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
-    marginBottom: 15,
-  },
-  autor: {
-    fontSize: 14,
-    color: '#888',
-    fontStyle: 'italic',
-  },
-});
+// ➕ ADICIONAR: Estilo para texto
+text: {
+  fontSize: 20,
+  marginTop: 20,
+  marginBottom: 20,
+  marginLeft: 20,
+  marginRight: 20,
+  textAlign: "center",
+},
 ```
 
 **✅ O que aprendemos:**
-- Componente Text para exibição de conteúdo
-- Diferentes estilos de texto (tamanho, cor, peso)
-- Propriedades de texto (textAlign, lineHeight)
-- Organização visual com espaçamentos
+- Hook `useState` para gerenciar estado
+- Múltiplos estados independentes
+- Interatividade com botões
+- Interpolação de valores no JSX
+- Funções inline para eventos
 
 ---
 
-### 📋 Etapa 3: Adicionando ScrollView
+### 📋 Etapa 3: Campo de Entrada de Nome
 
-**🎯 O que vamos fazer:** Tornar o conteúdo rolável para comportar mais informações.
+**🎯 O que vamos fazer:** Adicionar um campo de texto para entrada de nome com feedback em tempo real.
 
 **📝 Passo a Passo:**
-1. **Mantenha o código anterior** (continue construindo!)
-2. Adicione o import do ScrollView
-3. Envolva o conteúdo com ScrollView
-4. Adicione mais conteúdo para testar a rolagem
+1. **Adicione apenas este conteúdo** após o botão "Adicionar"
+2. **Adicione apenas este estilo** no StyleSheet
 
 ```javascript
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+// ➕ ADICIONAR: Campo de nome
+<Text style={styles.text}>
+  Digite seu nome:
+</Text>
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        <Text style={styles.titulo}>Meu App Gráfico</Text>
-        <Text style={styles.subtitulo}>Aprendendo React Native</Text>
-        <Text style={styles.descricao}>
-          Este é um projeto educativo para aprender os fundamentos do React Native com Expo.
-        </Text>
-        
-        <Text style={styles.secaoTitulo}>Componentes Básicos</Text>
-        <Text style={styles.item}>• View - Container básico</Text>
-        <Text style={styles.item}>• Text - Exibição de texto</Text>
-        <Text style={styles.item}>• ScrollView - Conteúdo rolável</Text>
-        <Text style={styles.item}>• FlatList - Lista otimizada</Text>
-        <Text style={styles.item}>• Image - Exibição de imagens</Text>
-        
-        <Text style={styles.secaoTitulo}>Conceitos Importantes</Text>
-        <Text style={styles.item}>• Flexbox para layout</Text>
-        <Text style={styles.item}>• StyleSheet para estilos</Text>
-        <Text style={styles.item}>• Props para configuração</Text>
-        <Text style={styles.item}>• State para dados dinâmicos</Text>
-        
-        <Text style={styles.autor}>Desenvolvido por: Estudante</Text>
-      </ScrollView>
-    </View>
-  );
-}
+<TextInput style={styles.input}
+  placeholder="Informe seu nome:"
+  onChangeText={setNome}
+/>
+<Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitulo: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  descricao: {
-    fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
-    marginBottom: 20,
-  },
-  secaoTitulo: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#444',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  item: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 5,
-    paddingLeft: 10,
-  },
-  autor: {
-    fontSize: 14,
-    color: '#888',
-    fontStyle: 'italic',
-    marginTop: 30,
-    textAlign: 'center',
-  },
-});
+// ➕ ADICIONAR: Estilo para input
+input: {
+  borderWidth: 1,
+  padding: 8,
+  width: 220,
+  marginTop: 10,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "white",
+},
 ```
 
 **✅ O que aprendemos:**
-- ScrollView para conteúdo rolável
-- contentContainerStyle para estilizar o conteúdo
-- Organização de informações em seções
-- Lista de itens com bullets
+- Componente `TextInput` para entrada de dados
+- Propriedade `placeholder` para dicas visuais
+- `onChangeText` para capturar mudanças em tempo real
+- Operador `||` para valores padrão
+- Estilização de inputs com bordas e padding
 
 ---
 
-### 📋 Etapa 4: Adicionando FlatList
+### 📋 Etapa 4: Calculadora Simples
 
-**🎯 O que vamos fazer:** Substituir a lista manual por uma FlatList otimizada.
+**🎯 O que vamos fazer:** Implementar uma calculadora básica que soma dois valores.
 
 **📝 Passo a Passo:**
-1. **Mantenha o código anterior** (estamos evoluindo!)
-2. Adicione o import do FlatList
-3. Crie arrays de dados
-4. Substitua as listas manuais por FlatList
+1. **Adicione apenas esta função** após os estados
+2. **Adicione apenas este conteúdo** após o campo de nome
+3. **Adicione apenas este estilo** no StyleSheet
 
 ```javascript
-import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native';
-
-export default function App() {
-  const componentes = [
-    'View - Container básico',
-    'Text - Exibição de texto',
-    'ScrollView - Conteúdo rolável',
-    'FlatList - Lista otimizada',
-    'Image - Exibição de imagens',
-  ];
-
-  const conceitos = [
-    'Flexbox para layout',
-    'StyleSheet para estilos',
-    'Props para configuração',
-    'State para dados dinâmicos',
-  ];
-
-  const renderItem = ({ item }) => (
-    <Text style={styles.item}>• {item}</Text>
-  );
-
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        <Text style={styles.titulo}>Meu App Gráfico</Text>
-        <Text style={styles.subtitulo}>Aprendendo React Native</Text>
-        <Text style={styles.descricao}>
-          Este é um projeto educativo para aprender os fundamentos do React Native com Expo.
-        </Text>
-        
-        <Text style={styles.secaoTitulo}>Componentes Básicos</Text>
-        <FlatList
-          data={componentes}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          scrollEnabled={false}
-        />
-        
-        <Text style={styles.secaoTitulo}>Conceitos Importantes</Text>
-        <FlatList
-          data={conceitos}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          scrollEnabled={false}
-        />
-        
-        <Text style={styles.autor}>Desenvolvido por: Estudante</Text>
-      </ScrollView>
-    </View>
-  );
+// ➕ ADICIONAR: Função para somar
+const somar = () => {
+  setResultadoSoma(parseInt(valor1) + parseInt(valor2));
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitulo: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  descricao: {
-    fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
-    marginBottom: 20,
-  },
-  secaoTitulo: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#444',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  item: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 5,
-    paddingLeft: 10,
-  },
-  autor: {
-    fontSize: 14,
-    color: '#888',
-    fontStyle: 'italic',
-    marginTop: 30,
-    textAlign: 'center',
-  },
-});
+// ➕ ADICIONAR: Calculadora
+<Text style={styles.text}>Trabalhando com Números.</Text>
+<Text style={styles.text}>
+  Digite os dois valores:
+</Text>
+<TextInput style={styles.inputSoma}
+  placeholder="Informe o primeiro valor:"
+  onChangeText={setValor1}
+/>
+
+<TextInput style={styles.inputSoma}
+  placeholder="Informe o segundo valor:"
+  onChangeText={setValor2}
+/>
+<Button title="Somar" onPress={somar} />
+
+<Text style={styles.text}> O resultado é: {resultadoSoma}</Text>
+
+// ➕ ADICIONAR: Estilo para inputSoma
+inputSoma: {
+  borderWidth: 1,
+  padding: 8,
+  width: 220,
+  marginTop: 10,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "white",
+},
 ```
 
 **✅ O que aprendemos:**
-- FlatList para listas otimizadas
-- Arrays de dados estruturados
-- Função renderItem para personalizar itens
-- keyExtractor para identificação única
-- scrollEnabled para controlar rolagem
+- Criação de funções personalizadas
+- Conversão de strings para números com `parseInt`
+- Múltiplos campos de entrada
+- Lógica de cálculo simples
+- Reutilização de estilos similares
 
 ---
 
-### 📋 Etapa 5: Adicionando Imagens
+### 📋 Etapa 5: Conteúdo Educativo com Imagem
 
-**🎯 O que vamos fazer:** Adicionar imagens ao nosso app para torná-lo mais visual.
+**🎯 O que vamos fazer:** Adicionar uma seção educativa sobre React Native com imagem e texto formatado.
 
 **📝 Passo a Passo:**
-1. **Mantenha o código anterior** (quase finalizando!)
-2. Adicione o import do Image
-3. Adicione imagens locais ou da web
-4. Organize as imagens no layout
+1. **Adicione apenas este container** após o `</View>` do container1
+2. **Adicione apenas estes estilos** no StyleSheet
 
 ```javascript
-import { View, Text, StyleSheet, ScrollView, FlatList, Image } from 'react-native';
+// ➕ ADICIONAR: Segundo container com conteúdo educativo
+<View style={styles.container2}>
+  <ScrollView>
+    <Text style={styles.text}>
+      A importância de estudar React Native
+    </Text>
 
-export default function App() {
-  const componentes = [
-    'View - Container básico',
-    'Text - Exibição de texto',
-    'ScrollView - Conteúdo rolável',
-    'FlatList - Lista otimizada',
-    'Image - Exibição de imagens',
-  ];
+    <Image source={require('./assets/logo_estacio.png')} style={styles.image} />
 
-  const conceitos = [
-    'Flexbox para layout',
-    'StyleSheet para estilos',
-    'Props para configuração',
-    'State para dados dinâmicos',
-  ];
+    <Text style={styles.text}>
+      Estudar React Native é essencial para quem deseja atuar no desenvolvimento mobile moderno, pois a tecnologia permite criar aplicativos nativos para Android e iOS utilizando apenas JavaScript e React. Isso significa que, com um único código-base, é possível atingir duas das maiores plataformas do mercado, reduzindo tempo e esforço de desenvolvimento.
+    </Text>
 
-  const renderItem = ({ item }) => (
-    <Text style={styles.item}>• {item}</Text>
-  );
+    <Text style={styles.text}>
+      Além da praticidade, o React Native oferece alto desempenho, já que seus componentes se comunicam diretamente com APIs nativas dos dispositivos. Isso garante que os aplicativos tenham fluidez e uma experiência de usuário semelhante à dos apps desenvolvidos de forma totalmente nativa.
+    </Text>
 
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        <Text style={styles.titulo}>Meu App Gráfico</Text>
-        <Text style={styles.subtitulo}>Aprendendo React Native</Text>
-        
-        <View style={styles.imagemContainer}>
-          <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            style={styles.imagem}
-            resizeMode="contain"
-          />
-          <Text style={styles.imagemLegenda}>Logo do React Native</Text>
-        </View>
-        
-        <Text style={styles.descricao}>
-          Este é um projeto educativo para aprender os fundamentos do React Native com Expo.
-        </Text>
-        
-        <Text style={styles.secaoTitulo}>Componentes Básicos</Text>
-        <FlatList
-          data={componentes}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          scrollEnabled={false}
-        />
-        
-        <Text style={styles.secaoTitulo}>Conceitos Importantes</Text>
-        <FlatList
-          data={conceitos}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          scrollEnabled={false}
-        />
-        
-        <View style={styles.imagemContainer}>
-          <Image
-            source={{ uri: 'https://docs.expo.dev/static/images/tutorial/logo.png' }}
-            style={styles.imagem}
-            resizeMode="contain"
-          />
-          <Text style={styles.imagemLegenda}>Logo do Expo</Text>
-        </View>
-        
-        <Text style={styles.autor}>Desenvolvido por: Estudante</Text>
-      </ScrollView>
-    </View>
-  );
-}
+    <Text style={styles.text_destaque}>
+      Por fim, estudar React Native amplia as oportunidades de carreira e empreendedorismo. Profissionais que dominam essa tecnologia são valorizados, já que empresas buscam soluções ágeis e econômicas para desenvolver aplicativos.
+    </Text>
+  </ScrollView>
+</View>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitulo: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  imagemContainer: {
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  imagem: {
-    width: 100,
-    height: 100,
-    marginBottom: 10,
-  },
-  imagemLegenda: {
-    fontSize: 14,
-    color: '#666',
-    textAlign: 'center',
-  },
-  descricao: {
-    fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
-    marginBottom: 20,
-  },
-  secaoTitulo: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#444',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  item: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 5,
-    paddingLeft: 10,
-  },
-  autor: {
-    fontSize: 14,
-    color: '#888',
-    fontStyle: 'italic',
-    marginTop: 30,
-    textAlign: 'center',
-  },
-});
+// ➕ ADICIONAR: Estilos para o segundo container
+container2: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "yellow",
+  marginTop: 20,
+},
+text_destaque: {
+  fontSize: 20,
+  fontWeight: "bold",
+  color: "blue",
+  marginTop: 20,
+  marginBottom: 20,
+  marginLeft: 20,
+  marginRight: 20,
+},
+image: {
+  width: 100,
+  height: 80,
+  marginTop: 10,
+  alignItems: "center",
+  justifyContent: "center",
+  borderWidth: 5,
+  borderColor: "black",
+  borderRadius: 10,
+  padding: 10,
+},
 ```
 
 **✅ O que aprendemos:**
-- Componente Image para exibição de imagens
-- source com URI para imagens da web
-- resizeMode para controlar redimensionamento
-- Organização de imagens com containers
-- Legendas para contextualizar imagens
+- Múltiplos containers com cores diferentes
+- Componente `Image` com arquivos locais
+- ScrollView aninhado para conteúdo extenso
+- Estilos diferenciados para textos especiais
+- Organização visual com cores e espaçamentos
 
 ---
 
-## 🎨 Formas Geométricas no React Native
+## 🎉 Funcionalidades Implementadas
 
-Agora vamos aprender a criar formas geométricas básicas no React Native. Esta seção é independente e pode ser implementada separadamente.
+Parabéns! Você acabou de construir um aplicativo completo com:
 
-### 📋 Criando Formas Básicas
+✅ **Contador Interativo** - Botão para incrementar valores  
+✅ **Campo de Nome** - Input com feedback em tempo real  
+✅ **Calculadora Simples** - Soma de dois valores  
+✅ **Conteúdo Educativo** - Texto sobre React Native  
+✅ **Imagem Local** - Logo da Estácio com bordas  
+✅ **Layout Responsivo** - ScrollView para conteúdo extenso  
+✅ **Estilização Avançada** - Múltiplos containers coloridos  
 
-**🎯 O que vamos fazer:** Criar um app focado em formas geométricas.
+### 🔧 Conceitos Técnicos Aplicados
 
-**📝 Passo a Passo:**
-1. Crie um novo arquivo ou substitua o App.js
-2. Use o código abaixo para criar formas básicas
+- **useState Hook** - Gerenciamento de estado local
+- **Componentes Básicos** - Text, View, Button, TextInput, ScrollView, Image
+- **Event Handlers** - onPress, onChangeText
+- **StyleSheet** - Organização e reutilização de estilos
+- **Flexbox Layout** - Posicionamento e dimensionamento
+- **Imagens Locais** - require() para assets
+- **Interpolação JSX** - {variável} para valores dinâmicos
 
-```javascript
-import { View, Text, StyleSheet } from 'react-native';
+---
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Formas Geométricas</Text>
-      
-      <View style={styles.formasContainer}>
-        <View style={styles.formaItem}>
-          <View style={styles.circulo} />
-          <Text style={styles.formaLabel}>Círculo</Text>
-        </View>
-        
-        <View style={styles.formaItem}>
-          <View style={styles.quadrado} />
-          <Text style={styles.formaLabel}>Quadrado</Text>
-        </View>
-        
-        <View style={styles.formaItem}>
-          <View style={styles.retangulo} />
-          <Text style={styles.formaLabel}>Retângulo</Text>
-        </View>
-        
-        <View style={styles.formaItem}>
-          <View style={styles.triangulo} />
-          <Text style={styles.formaLabel}>Triângulo</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
+## 🚀 Como Executar o Projeto
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f0f0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 30,
-  },
-  formasContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  formaItem: {
-    alignItems: 'center',
-    margin: 15,
-  },
-  circulo: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#ff6b6b',
-    marginBottom: 10,
-  },
-  quadrado: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#4ecdc4',
-    marginBottom: 10,
-  },
-  retangulo: {
-    width: 100,
-    height: 60,
-    backgroundColor: '#45b7d1',
-    marginBottom: 10,
-  },
-  triangulo: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 40,
-    borderRightWidth: 40,
-    borderBottomWidth: 70,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: '#feca57',
-    marginBottom: 10,
-  },
-  formaLabel: {
-    fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
-  },
-});
+### 1. Clone o Repositório
+```bash
+git clone https://github.com/feliperj629/appGrafico.git
+cd appGrafico
 ```
 
-**✅ O que aprendemos:**
-- Criação de círculos com borderRadius
-- Quadrados e retângulos com width/height
-- Triângulos usando borderStyle
-- Organização de formas em grid
-- Labels para identificar formas
+### 2. Instale as Dependências
+```bash
+npm install
+```
+
+### 3. Execute o Projeto
+```bash
+npx expo start
+```
+
+### 4. Visualize no Dispositivo
+- **Navegador**: Pressione `w`
+- **Android**: Pressione `a` (com emulador)
+- **iOS**: Pressione `i` (com emulador)
+- **Celular**: Escaneie o QR Code com Expo Go
 
 ---
 
-## 🎉 Resumo do que Aprendemos
+## 📱 Estrutura do Projeto
 
-Parabéns! Você acabou de aprender os fundamentos do React Native:
-
-✅ **Controle de Versão** - Git e GitHub  
-✅ **Configuração** - Expo e dependências  
-✅ **Textos** - Diferentes estilos e organização  
-✅ **ScrollView** - Conteúdo rolável  
-✅ **FlatList** - Listas otimizadas  
-✅ **Imagens** - Exibição de mídia  
-✅ **Formas** - Elementos geométricos  
-
-### 🚀 Próximos Passos Sugeridos
-
-Agora que você tem uma base sólida, que tal expandir seu conhecimento?
-
-1. **🎯 Navegação** - Implementar múltiplas telas
-2. **📊 Dados** - Consumir APIs e JSON
-3. **🎨 Temas** - Implementar modo claro/escuro
-4. **💾 Persistência** - Salvar dados localmente
-5. **🔔 Notificações** - Push notifications
+```
+appGrafico/
+├── App.js                 # Componente principal
+├── app.json              # Configurações do Expo
+├── package.json          # Dependências do projeto
+├── assets/               # Recursos (imagens, ícones)
+│   ├── logo_estacio.png  # Logo da Estácio
+│   ├── icon.png          # Ícone do app
+│   └── splash-icon.png  # Tela de splash
+└── README.md             # Este arquivo
+```
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **React Native**: Framework para desenvolvimento mobile
-- **Expo**: Plataforma para desenvolvimento e deploy de apps React Native
-- **Git**: Controle de versão
-- **GitHub**: Repositório remoto
+- **React Native** - Framework para desenvolvimento mobile
+- **Expo** - Plataforma para desenvolvimento e deploy
+- **React Hooks** - useState para gerenciamento de estado
+- **JavaScript ES6+** - Sintaxe moderna do JavaScript
 
 ---
 
-## 🚀 Como Executar
+## 🎯 Próximos Passos Sugeridos
 
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/seu-usuario/appGrafico.git
-   cd appGrafico
-   ```
+Agora que você tem uma base sólida, que tal expandir seu conhecimento?
 
-2. **Instale as dependências**
-   ```bash
-   npm install
-   ```
-
-3. **Execute o projeto**
-   ```bash
-   npx expo start
-   ```
-
-4. **Visualize no dispositivo**
-   - Escaneie o QR Code com o app Expo Go
-   - Ou pressione 'w' para abrir no navegador
-
----
-
-## 💡 Dicas para Continuar
-
-- **🧪 Teste cada etapa** independentemente antes de prosseguir
-- **📝 Mantenha o código organizado** com comentários explicativos
-- **📱 Teste em diferentes dispositivos** para garantir responsividade
-- **🎨 Experimente com cores e layouts** para personalizar
-- **👥 Compartilhe seu progresso** com a turma e peça feedback
+1. **🔢 Operações Matemáticas** - Implementar subtração, multiplicação e divisão
+2. **🎨 Temas** - Adicionar modo claro/escuro
+3. **📊 Validação** - Validar entradas numéricas
+4. **💾 Persistência** - Salvar dados localmente
+5. **🔔 Notificações** - Push notifications
+6. **📱 Navegação** - Múltiplas telas
 
 ---
 
@@ -807,14 +424,58 @@ Agora que você tem uma base sólida, que tal expandir seu conhecimento?
 ### Documentação Oficial:
 - [React Native Docs](https://reactnative.dev/)
 - [Expo Docs](https://docs.expo.dev/)
-- [React Native Elements](https://reactnativeelements.com/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 
-### Componentes Importantes:
+### Componentes Utilizados:
 - **Text**: [Documentação](https://reactnative.dev/docs/text)
+- **TextInput**: [Documentação](https://reactnative.dev/docs/textinput)
+- **Button**: [Documentação](https://reactnative.dev/docs/button)
 - **ScrollView**: [Documentação](https://reactnative.dev/docs/scrollview)
-- **FlatList**: [Documentação](https://reactnative.dev/docs/flatlist)
 - **Image**: [Documentação](https://reactnative.dev/docs/image)
 
 ---
 
+## 💡 Dicas para Desenvolvimento
+
+- **🧪 Teste cada etapa** independentemente antes de prosseguir
+- **📝 Mantenha o código organizado** com comentários explicativos
+- **📱 Teste em diferentes dispositivos** para garantir responsividade
+- **🎨 Experimente com cores e layouts** para personalizar
+- **👥 Compartilhe seu progresso** e peça feedback
+
+---
+
+## 🐛 Solução de Problemas Comuns
+
+### Erro: "Metro bundler failed to start"
+```bash
+npx expo start --clear
+```
+
+### Erro: "Unable to resolve module"
+```bash
+npm install
+npx expo start --clear
+```
+
+### Imagem não aparece
+- Verifique se o arquivo existe em `./assets/`
+- Confirme o nome exato do arquivo
+- Use `require()` para imagens locais
+
+---
+
 **🎓 Desenvolvido para fins educacionais - Aprenda, experimente e divirta-se!**
+
+---
+
+## 📞 Suporte
+
+Se você encontrar algum problema ou tiver dúvidas:
+
+1. **Verifique a documentação** oficial do React Native e Expo
+2. **Consulte a seção** de solução de problemas acima
+3. **Teste em diferentes dispositivos** para identificar problemas específicos
+4. **Compartilhe o código** com colegas para revisão
+
+**Boa sorte com seu desenvolvimento! 🚀**

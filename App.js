@@ -2,59 +2,94 @@ import { useState } from 'react';
 import { View, Text, Button, TextInput, ScrollView, StyleSheet, Image } from 'react-native';
 
 export default function App() {
-  const [contar, setContar] = useState(100);
+  const [contar, setContar] = useState(1);
   const [nome, setNome] = useState("");
+  const [valor1, setValor1] = useState(0);
+  const [valor2, setValor2] = useState(0);
+  const [resultadoSoma, setResultadoSoma] = useState(0);
+
+  /* Criando funções*/
+
+  /* Função para somar */
+  const somar = () => {
+    setResultadoSoma(parseInt(valor1) + parseInt(valor2));
+  }
+  /* Função para subtrair */
+
+  /* Função para multiplicar */
+
+  /* Função para dividir */
 
 
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text>Contador: {contar} - {nome}</Text>
-        <Button title="Adicionar" onPress={() => setContar(contar + 100)} />
+        <View style={styles.container1}>
 
-        <Text style={styles.text}>
-          Digite seu nome:
-        </Text>
+          <h1>Brincando com o useState</h1>
+          <Text>Contador: {contar}</Text>
+          <Button title="Adicionar" onPress={() => setContar(contar + 1)} />
 
-        <TextInput style={styles.input}
-          placeholder="Informe seu nome:"
-          onChangeText={setNome}
-        />
-        <Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
+          <Text style={styles.text}>
+            Digite seu nome:
+          </Text>
 
-        <Text style={styles.text}>
-          <h1>Meu primeiro Título</h1>
+          <TextInput style={styles.input}
+            placeholder="Informe seu nome:"
+            onChangeText={setNome}
+          />
+          <Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
 
-          <Image source={require('./assets/logo_estacio.png')} style={styles.image} />
 
-          <p style={styles.text}>
-            As experiências acumuladas demonstram que a valorização de fatores subjetivos eleva o grau de responsabilidade compartilhada das variáveis críticas de sucesso organizacional. Do mesmo modo, o desenvolvimento contínuo de distintas formas de atuação desafia a capacidade de equalização da gestão inovadora da qual fazemos parte. Gostaria de enfatizar que a execução dos pontos do programa deve passar por modificações independentemente das condições inegavelmente apropriadas. O cuidado em identificar pontos críticos no julgamento imparcial das eventualidades assume importantes posições no estabelecimento das condições estruturais subjacentes.
-          </p>
 
-          <h2 style={styles.text}>Meu segundo Título</h2>
+          <h1>Trabalhando com Números.</h1>
+          <Text style={styles.text}>
+            Digite os dois valores:
+          </Text>
+          <TextInput style={styles.inputSoma}
+            placeholder="Informe o primeiro valor:"
+            onChangeText={setValor1}
+          />
 
-          <p style={styles.text}>
-            As experiências acumuladas demonstram que a valorização de fatores subjetivos eleva o grau de responsabilidade compartilhada das variáveis críticas de sucesso organizacional. Do mesmo modo, o desenvolvimento contínuo de distintas formas de atuação desafia a capacidade de equalização da gestão inovadora da qual fazemos parte. Gostaria de enfatizar que a execução dos pontos do programa deve passar por modificações independentemente das condições inegavelmente apropriadas. O cuidado em identificar pontos críticos no julgamento imparcial das eventualidades assume importantes posições no estabelecimento das condições estruturais subjacentes.
-          </p>
+          <TextInput style={styles.inputSoma}
+            placeholder="Informe o segundo valor:"
+            onChangeText={setValor2}
+          />
+          <Button title="Somar" onPress={somar} />
 
-          <h3 style={styles.text}>Meu terceiro Título</h3>
+          <Text style={styles.text}> O resultado é: {resultadoSoma}</Text>
 
-          <p style={styles.text}>
-            As experiências acumuladas demonstram que a valorização de fatores subjetivos eleva o grau de responsabilidade compartilhada das variáveis críticas de sucesso organizacional. Do mesmo modo, o desenvolvimento contínuo de distintas formas de atuação desafia a capacidade de equalização da gestão inovadora da qual fazemos parte. Gostaria de enfatizar que a execução dos pontos do programa deve passar por modificações independentemente das condições inegavelmente apropriadas. O cuidado em identificar pontos críticos no julgamento imparcial das eventualidades assume importantes posições no estabelecimento das condições estruturais subjacentes.
-          </p>
+        </View>
 
-          <h4 style={styles.text_destaque}>Meu quarto Título</h4>
 
-          <p style={styles.text_destaque}>
-            As experiências acumuladas demonstram que a valorização de fatores subjetivos eleva o grau de responsabilidade compartilhada das variáveis críticas de sucesso organizacional. Do mesmo modo, o desenvolvimento contínuo de distintas formas de atuação desafia a capacidade de equalização da gestão inovadora da qual fazemos parte. Gostaria de enfatizar que a execução dos pontos do programa deve passar por modificações independentemente das condições inegavelmente apropriadas. O cuidado em identificar pontos críticos no julgamento imparcial das eventualidades assume importantes posições no estabelecimento das condições estruturais subjacentes.
-          </p>
-          <br />
+        <View style={styles.container2}>
+          <ScrollView>
+            <Text style={styles.text}>
+              <h1>A importância de estudar React Native</h1>
 
-        </Text>
+              <Image source={require('./assets/logo_estacio.png')} style={styles.image} />
+
+              <p style={styles.text}>
+                Estudar <b>React Native</b> é essencial para quem deseja atuar no desenvolvimento mobile moderno, pois a tecnologia permite criar aplicativos nativos para Android e iOS utilizando apenas JavaScript e React. Isso significa que, com um único código-base, é possível atingir duas das maiores plataformas do mercado, reduzindo tempo e esforço de desenvolvimento. Essa característica de multiplataforma faz do React Native uma escolha muito atrativa tanto para iniciantes quanto para desenvolvedores experientes.
+              </p>
+
+              <p style={styles.text}>
+                Além da praticidade, o React Native oferece <b>alto desempenho</b>, já que seus componentes se comunicam diretamente com APIs nativas dos dispositivos. Isso garante que os aplicativos tenham fluidez e uma experiência de usuário semelhante à dos apps desenvolvidos de forma totalmente nativa. Dessa forma, o conhecimento em React Native não apenas abre portas para projetos mais eficientes, mas também garante que o desenvolvedor consiga entregar produtos competitivos e de qualidade.
+              </p>
+
+              <p style={styles.text}>
+                Outro ponto importante é a <a>ampla comunidade</a> que existe em torno do React Native. Por ser mantido pelo Facebook (atual Meta) e usado por empresas como Instagram, Uber e Walmart, a tecnologia recebe constantes atualizações e conta com uma base sólida de bibliotecas, ferramentas e tutoriais. Isso torna o aprendizado mais acessível e possibilita encontrar soluções para problemas comuns de maneira rápida, o que é um grande diferencial no dia a dia profissional.
+              </p>
+
+              <p style={styles.text_destaque}>
+                Por fim, estudar React Native amplia as oportunidades de carreira e empreendedorismo. Profissionais que dominam essa tecnologia são valorizados, já que empresas buscam soluções ágeis e econômicas para desenvolver aplicativos. Além disso, o conhecimento adquirido pode ser aplicado em projetos pessoais ou startups, permitindo transformar ideias em produtos digitais com maior rapidez. Em um mercado cada vez mais orientado à mobilidade, investir no aprendizado de React Native é um passo estratégico para o futuro.
+              </p>
+            </Text>
+          </ScrollView>
+        </View>
 
       </ScrollView>
-
-    </View>
+    </View >
   );
 }
 
@@ -63,10 +98,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 20,
+  },
+  container1: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    backgroundColor: "cyan",
+  },
+  container2: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "yellow",
+    marginTop: 20,
   },
   text: {
     fontSize: 20,
-    color: "green",
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 20,
@@ -91,6 +140,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "white",
+  },
+  inputSoma: {
+    borderWidth: 1,
+    padding: 8,
+    width: 220,
+    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
   },
   image: {
     width: 100,
@@ -102,5 +161,8 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     padding: 10,
+  },
+  scrollView: {
+    flex: 1,
   },
 });
