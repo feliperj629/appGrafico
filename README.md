@@ -355,7 +355,7 @@ Parabéns! Você acabou de construir um aplicativo completo com:
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 🚀 Caso queira clonar e executar o projeto completo localmente
 
 ### 1. Clone o Repositório
 ```bash
