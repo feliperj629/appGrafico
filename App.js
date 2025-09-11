@@ -7,6 +7,9 @@ export default function App() {
   const [valor1, setValor1] = useState(0);
   const [valor2, setValor2] = useState(0);
   const [resultadoSoma, setResultadoSoma] = useState(0);
+  const [resultadoSubtracao, setResultadoSubtracao] = useState(0);
+  const [resultadoMult, setResultadoMult] = useState(0);
+  const [resultadoDiv, setResultadoDiv] = useState(0);
 
   /* Criando funções*/
 
@@ -15,50 +18,103 @@ export default function App() {
     setResultadoSoma(parseInt(valor1) + parseInt(valor2));
   }
   /* Função para subtrair */
+  const funcSubtracao = () => {
+    setResultadoSubtracao(parseInt(valor1) - parseInt(valor2));
+  }
 
   /* Função para multiplicar */
+  const funcMult = () => {
+    setResultadoMult(parseInt(valor1) * parseInt(valor2));
+  }
 
   /* Função para dividir */
+  const funcDiv = () => {
+    setResultadoDiv(parseInt(valor1) / parseInt(valor2));
+  }
 
 
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.container1}>
+          <ScrollView>
+            <h1>Brincando com o useState</h1>
+            <Text>Contador: {contar}</Text>
+            <Button title="Adicionar" onPress={() => setContar(contar + 1)} />
 
-          <h1>Brincando com o useState</h1>
-          <Text>Contador: {contar}</Text>
-          <Button title="Adicionar" onPress={() => setContar(contar + 1)} />
+            <Text style={styles.text}>
+              Digite seu nome:
+            </Text>
 
-          <Text style={styles.text}>
-            Digite seu nome:
-          </Text>
-
-          <TextInput style={styles.input}
-            placeholder="Informe seu nome:"
-            onChangeText={setNome}
-          />
-          <Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
+            <TextInput style={styles.input}
+              placeholder="Informe seu nome:"
+              onChangeText={setNome}
+            />
+            <Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
 
 
 
-          <h1>Trabalhando com Números.</h1>
-          <Text style={styles.text}>
-            Digite os dois valores:
-          </Text>
-          <TextInput style={styles.inputSoma}
-            placeholder="Informe o primeiro valor:"
-            onChangeText={setValor1}
-          />
+            <h1>Trabalhando com Números.</h1>
+            <Text style={styles.text}>
+              Digite os dois valores:
+            </Text>
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o primeiro valor:"
+              onChangeText={setValor1}
+            />
 
-          <TextInput style={styles.inputSoma}
-            placeholder="Informe o segundo valor:"
-            onChangeText={setValor2}
-          />
-          <Button title="Somar" onPress={somar} />
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o segundo valor:"
+              onChangeText={setValor2}
+            />
+            <Button title="Somar" onPress={somar} />
+            <Text style={styles.text}> O resultado é: {resultadoSoma}</Text>
 
-          <Text style={styles.text}> O resultado é: {resultadoSoma}</Text>
+            <Text style={styles.text}>
+              Digite os dois valores para subtrair:
+            </Text>
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o primeiro valor:"
+              onChangeText={setValor1}
+            />
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o segundo valor:"
+              onChangeText={setValor2}
+            />
+            <Button title="Subtrair" onPress={funcSubtracao} />
+            <Text style={styles.text}> O resultado é: {resultadoSubtracao}</Text>
 
+
+            <Text style={styles.text}>
+              Digite os dois valores para Multiplicar:
+            </Text>
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o primeiro valor:"
+              onChangeText={setValor1}
+            />
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o segundo valor:"
+              onChangeText={setValor2}
+            />
+            <Button title="Multiplicar" onPress={funcMult} />
+            <Text style={styles.text}> O resultado é: {resultadoMult}</Text>
+
+            <Text style={styles.text}>
+              Digite os dois valores para Multiplicar:
+            </Text>
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o primeiro valor:"
+              onChangeText={setValor1}
+            />
+            <TextInput style={styles.inputSoma}
+              placeholder="Informe o segundo valor:"
+              onChangeText={setValor2}
+            />
+            <Button title="Dividir" onPress={funcDiv} />
+            <Text style={styles.text}> O resultado é: {resultadoDiv}</Text>
+
+
+          </ScrollView>
         </View>
 
 
