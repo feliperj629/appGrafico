@@ -7,40 +7,32 @@ export default function App() {
   const [valor1, setValor1] = useState(0);
   const [valor2, setValor2] = useState(0);
   const [resultadoSoma, setResultadoSoma] = useState(0);
-  const [resultadoSubtracao, setResultadoSubtracao] = useState(0);
-  const [resultadoMult, setResultadoMult] = useState(0);
-  const [resultadoDiv, setResultadoDiv] = useState(0);
 
   /* Criando funções*/
 
   /* Função para somar */
-  const somar = () => {
+  const funcSomar = () => {
     setResultadoSoma(parseInt(valor1) + parseInt(valor2));
   }
+
   /* Função para subtrair */
-  const funcSubtracao = () => {
-    setResultadoSubtracao(parseInt(valor1) - parseInt(valor2));
-  }
 
   /* Função para multiplicar */
-  const funcMult = () => {
-    setResultadoMult(parseInt(valor1) * parseInt(valor2));
-  }
 
   /* Função para dividir */
-  const funcDiv = () => {
-    setResultadoDiv(parseInt(valor1) / parseInt(valor2));
-  }
+
 
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.container1}>
-          <ScrollView>
+          <ScrollView style={styles.scrollView}>
             <h1>Brincando com o useState</h1>
             <Text>Contador: {contar}</Text>
             <Button title="Adicionar" onPress={() => setContar(contar + 1)} />
+            <View style={styles.separator} />
+            {/* --------------------------------------------- */}
 
             <Text style={styles.text}>
               Digite seu nome:
@@ -51,75 +43,35 @@ export default function App() {
               onChangeText={setNome}
             />
             <Text style={styles.text}>Olá, {nome || "visitante"}!</Text>
-
-
+            <View style={styles.separator} />
+            {/* --------------------------------------------- */}
 
             <h1>Trabalhando com Números.</h1>
+            {/* --------------------------------------------- */}
             <Text style={styles.text}>
-              Digite os dois valores:
+              Somar dois valores:
             </Text>
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o primeiro valor:"
-              onChangeText={setValor1}
-            />
-
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o segundo valor:"
-              onChangeText={setValor2}
-            />
-            <Button title="Somar" onPress={somar} />
+            <View style={styles.inputContainer}>
+              <TextInput style={styles.inputSoma}
+                placeholder="Primeiro valor:"
+                onChangeText={setValor1}
+              />
+              <TextInput style={styles.inputSoma}
+                placeholder="Segundo valor:"
+                onChangeText={setValor2}
+              />
+            </View>
+            <Button title="Somar" onPress={funcSomar} />
             <Text style={styles.text}> O resultado é: {resultadoSoma}</Text>
-
-            <Text style={styles.text}>
-              Digite os dois valores para subtrair:
-            </Text>
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o primeiro valor:"
-              onChangeText={setValor1}
-            />
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o segundo valor:"
-              onChangeText={setValor2}
-            />
-            <Button title="Subtrair" onPress={funcSubtracao} />
-            <Text style={styles.text}> O resultado é: {resultadoSubtracao}</Text>
-
-
-            <Text style={styles.text}>
-              Digite os dois valores para Multiplicar:
-            </Text>
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o primeiro valor:"
-              onChangeText={setValor1}
-            />
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o segundo valor:"
-              onChangeText={setValor2}
-            />
-            <Button title="Multiplicar" onPress={funcMult} />
-            <Text style={styles.text}> O resultado é: {resultadoMult}</Text>
-
-            <Text style={styles.text}>
-              Digite os dois valores para Multiplicar:
-            </Text>
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o primeiro valor:"
-              onChangeText={setValor1}
-            />
-            <TextInput style={styles.inputSoma}
-              placeholder="Informe o segundo valor:"
-              onChangeText={setValor2}
-            />
-            <Button title="Dividir" onPress={funcDiv} />
-            <Text style={styles.text}> O resultado é: {resultadoDiv}</Text>
-
+            <View style={styles.separator} />
+            {/* --------------------------------------------- */}
 
           </ScrollView>
         </View>
 
 
         <View style={styles.container2}>
-          <ScrollView>
+          <ScrollView style={styles.scrollView}>
             <Text style={styles.text}>
               <h1>A importância de estudar React Native</h1>
 
@@ -161,7 +113,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    backgroundColor: "cyan",
+    height: 400,
+    maxHeight: 400
   },
   container2: {
     flex: 1,
@@ -169,6 +122,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "yellow",
     marginTop: 20,
+    height: 400,
+    maxHeight: 400
   },
   text: {
     fontSize: 20,
@@ -198,14 +153,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "white",
   },
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 10,
+    paddingHorizontal: 20,
+  },
   inputSoma: {
     borderWidth: 1,
     padding: 8,
-    width: 220,
-    marginTop: 10,
+    width: 150,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
+    marginHorizontal: 5,
   },
   image: {
     width: 100,
@@ -217,6 +179,11 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     padding: 10,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: "black",
+    marginVertical: 20,
   },
   scrollView: {
     flex: 1,
