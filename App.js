@@ -16,7 +16,7 @@ export default function App() {
   }
 
   /* Função para subtrair */
-
+  teste
   /* Função para multiplicar */
 
   /* Função para dividir */
